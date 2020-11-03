@@ -15,7 +15,7 @@ public enum ErgType implements net.minecraftforge.common.IExtensibleEnum {
 	   /**
 	    * Return true if the item passed can be erged.
 	    */
-		public boolean canEnchantItem(Item itemIn){
+		public boolean canErgItem(Item itemIn){
 			return itemIn instanceof SwordItem;
 		}
 	},
@@ -23,7 +23,7 @@ public enum ErgType implements net.minecraftforge.common.IExtensibleEnum {
 		/**
 		 * Return true if the item passed can be erged.
 		 */
-		public boolean canEnchantItem(Item itemIn){
+		public boolean canErgItem(Item itemIn){
 			return itemIn instanceof TridentItem;
 		}
 	},
@@ -31,7 +31,7 @@ public enum ErgType implements net.minecraftforge.common.IExtensibleEnum {
 		/**
 		 * Return true if the item passed can be erged.
 		 */
-		public boolean canEnchantItem(Item itemIn){
+		public boolean canErgItem(Item itemIn){
 			return itemIn instanceof BowItem;
 		}
 	},
@@ -39,7 +39,7 @@ public enum ErgType implements net.minecraftforge.common.IExtensibleEnum {
 		/**
 		 * Return true if the item passed can be erged.
 		 */
-		public boolean canEnchantItem(Item itemIn){
+		public boolean canErgItem(Item itemIn){
 			return itemIn instanceof CrossbowItem;
 		}
 	};
@@ -58,7 +58,7 @@ public enum ErgType implements net.minecraftforge.common.IExtensibleEnum {
 		throw new IllegalStateException("Enum not extended");
 	}
 	
-	public boolean canEnchantItem(Item itemIn){
+	public boolean canErgItem(Item itemIn){
 		return this.delegate == null ? false : this.delegate.test(itemIn);
 	}
 }

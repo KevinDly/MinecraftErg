@@ -16,6 +16,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.example.ergmod.erg.ErgRegistryEvent;
 import com.example.ergmod.utils.Constants;
 
 import java.util.stream.Collectors;
@@ -27,6 +28,7 @@ public class ErgMod
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = Constants.MOD_ID;
+    public static ErgMod instance;
     
     public ErgMod() {
         // Register the setup method for modloading
@@ -38,8 +40,12 @@ public class ErgMod
         // Register the doClientStuff method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
+        instance = this;
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+        
+        /*Register this bus to the Erg registry*/
+        ErgRegistryEvent.register(FMLJavaModLoadingContext.get().getModEventBus());
     }
 
     private void setup(final FMLCommonSetupEvent event)
