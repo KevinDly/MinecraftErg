@@ -5,10 +5,15 @@ import net.minecraftforge.fml.common.Mod;
 import com.example.ergmod.ErgMod;
 
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.Item;
 import net.minecraftforge.api.distmarker.*;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.event.entity.living.LivingAttackEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
+import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 
 /*Class that handles new events for the mod.*/
 
@@ -16,9 +21,25 @@ import net.minecraftforge.common.ForgeHooks;
 
 public class ModClientEvents {
 	
-	/*Event modifer that adjusts the amount of time added towards the swing cooldown*/
+	/*Event modifier that adjusts the amount of time added towards the swing cooldown*/
 	@SubscribeEvent
-	public static void onPlayerPreTick(PlayerEntity player){
+	public static void onErgAttack(LivingAttackEvent event){
+		LivingEntity player = event.getEntityLiving();
+		Item item = player.getHeldItemMainhand().getItem();
+		
+		//TODO: Change to check item for erg enhancement
+		if(true) {
+			//Check item level
+			//Check erg type
+			//Add additional bonus damage based on level calculation
+		}
+	}
+	
+	//TODO: Add this class with appropriate call to tooltip event.
+	//Need to use: net.minecraftforge.event.ForgeEventFactory.onItemTooltip(this, playerIn, list, advanced);
+	//TODO: Add the event into the parameters.
+	@SubscribeEvent
+	public static void displayToolTip(){
 		
 	}
 }
