@@ -21,7 +21,7 @@ import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 
 public class ModClientEvents {
 	
-	/*Event modifer that adjusts the amount of time added towards the swing cooldown*/
+	/*Event modifier that adjusts the amount of time added towards the swing cooldown*/
 	@SubscribeEvent
 	public static void onErgAttack(LivingAttackEvent event){
 		LivingEntity player = event.getEntityLiving();
@@ -33,5 +33,13 @@ public class ModClientEvents {
 			//Check erg type
 			//Add additional bonus damage based on level calculation
 		}
+	}
+	
+	//TODO: Add this class with appropriate call to tooltip event.
+	//Need to use: net.minecraftforge.event.ForgeEventFactory.onItemTooltip(this, playerIn, list, advanced);
+	//TODO: Add the event into the parameters.
+	@SubscribeEvent
+	public static void displayToolTip(){
+		
 	}
 }
