@@ -11,6 +11,8 @@ public class ItemHelper {
 	
 	//Check item for erg tag, add if it doesnt, don't add if it does
 	//TODO: Erg.getKey should return a payload of stuff?
+	//TODO: "Erg" should just be associated to a level
+	//TODO: Create ErgEffect which is the actual list of effects.
 	public void checkErg(ItemStack item, Erg erg, int level) {
 		//Creates tag for item if one hasn't already been created.
 		CompoundNBT tag = item.getOrCreateTag();
