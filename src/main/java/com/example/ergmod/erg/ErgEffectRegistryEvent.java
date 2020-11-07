@@ -11,7 +11,7 @@ public class ErgEffectRegistryEvent {
 	
 	/*TODO: Add the additional types*/
 	//Basically add more effects later on.
-	public static final RegistryObject<ErgEffect> DAMAGEEFFECT = ERG_EFFECT.register("damage_increase", DamageErgEffect::new);
+	public static final RegistryObject<ErgEffect> DAMAGEEFFECT = ERG_EFFECT.register(Constants.DAMAGE_INCREASE, DamageErgEffect::new);
 	public static void register(IEventBus eventBus) { ERG_EFFECT.register(eventBus); }
 
 }
