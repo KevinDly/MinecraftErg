@@ -16,7 +16,9 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.example.ergmod.erg.ErgEffectRegistryEvent;
 import com.example.ergmod.erg.ErgRegistryEvent;
+import com.example.ergmod.erg.SwordErg;
 import com.example.ergmod.utils.Constants;
 
 import java.util.stream.Collectors;
@@ -46,6 +48,8 @@ public class ErgMod
         
         /*Register this bus to the Erg registry*/
         ErgRegistryEvent.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ErgEffectRegistryEvent.register(FMLJavaModLoadingContext.get().getModEventBus());
+        
     }
 
     private void setup(final FMLCommonSetupEvent event)
