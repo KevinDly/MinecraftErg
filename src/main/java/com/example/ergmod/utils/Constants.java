@@ -21,4 +21,8 @@ public final class Constants {
 	
 	public static final String SWORD_ERG = "sword_erg";
 	
+	
+	/*Command Related*/
+	public static final String COMMAND_ERG = "ergapply";
+	
 }

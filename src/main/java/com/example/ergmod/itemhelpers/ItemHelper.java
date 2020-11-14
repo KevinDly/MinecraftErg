@@ -24,15 +24,15 @@ public class ItemHelper {
 	/*
 	 * Method that returns the level of erg, returns 0 if no erg exists.
 	 */
-	public int checkLevel(ItemStack item){
+	public static int checkLevel(ItemStack item){
 		//TODO: Check if redundant (getInt might return 0 anyways);
 		CompoundNBT tag = item.getOrCreateTag();
-		if(!tag.contains(Constants.NBT_ERG)){
+		if(tag.contains(Constants.NBT_ERG)){
 			return tag.getInt(Constants.NBT_ERG);
 		}
 		return 0;
 	}
-	public void checkErg(ItemStack item) {
+	public static void checkErg(ItemStack item) {
 		//Creates tag for item if one hasn't already been created.
 		CompoundNBT tag = item.getOrCreateTag();
 		int level = checkLevel(item);
@@ -48,7 +48,7 @@ public class ItemHelper {
 	}
 	
 	//Adds erg tag to item nbt
-	public void addErg(ItemStack item, CompoundNBT tag) {
+	public static void addErg(ItemStack item, CompoundNBT tag) {
 		//Creates tag that initializes the Erg.
 		tag.putInt(Constants.NBT_ERG, Constants.MIN_ERG);
 		
@@ -74,7 +74,7 @@ public class ItemHelper {
 	}
 	
 	//Updates pre-existing erg tag on an item nbt.
-	public void addErgLevel(ItemStack item, CompoundNBT tag) {
+	public static void addErgLevel(ItemStack item, CompoundNBT tag) {
 		int newLevel = tag.getInt(Constants.NBT_ERG) + 1;
 		tag.putInt(Constants.NBT_ERG, newLevel);
 		
