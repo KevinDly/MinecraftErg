@@ -1,11 +1,15 @@
 package com.example.ergmod;
 
 import net.minecraft.block.Block;
+
+
 import net.minecraft.block.Blocks;
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
+import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -16,6 +20,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import com.example.ergmod.commands.ErgCommand;
+import com.example.ergmod.erg.ErgEffect;
 import com.example.ergmod.erg.ErgEffectRegistryEvent;
 import com.example.ergmod.erg.ErgRegistryEvent;
 import com.example.ergmod.erg.SwordErg;
@@ -24,6 +30,7 @@ import com.example.ergmod.utils.Constants;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
+//TODO: Make command that shows NBT data of item in hand for easier testing.
 @Mod("erg")
 public class ErgMod
 {
@@ -31,6 +38,7 @@ public class ErgMod
     private static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = Constants.MOD_ID;
     public static ErgMod instance;
+    
     
     public ErgMod() {
         // Register the setup method for modloading
@@ -47,9 +55,11 @@ public class ErgMod
         MinecraftForge.EVENT_BUS.register(this);
         
         /*Register this bus to the Erg registry*/
-        ErgRegistryEvent.register(FMLJavaModLoadingContext.get().getModEventBus());
+        LOGGER.info("Registering ErgEffects");
         ErgEffectRegistryEvent.register(FMLJavaModLoadingContext.get().getModEventBus());
-        
+        LOGGER.info("Registering Ergs");
+        ErgRegistryEvent.register(FMLJavaModLoadingContext.get().getModEventBus());        
+
     }
 
     private void setup(final FMLCommonSetupEvent event)

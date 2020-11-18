@@ -15,9 +15,9 @@ public class ErgRegistry {
 	
 	private static void init(){
 		new RegistryBuilder<Erg>()
-			.setName(new ResourceLocation("ergmod", "erg"))
+			.setName(new ResourceLocation("erg", "erg"))
 			.setType(Erg.class)
-			.setDefaultKey(new ResourceLocation("ergmod", "empty"))
+			.setDefaultKey(new ResourceLocation("erg", "empty"))
 			.create();
 	}
 }

@@ -24,5 +24,6 @@ public final class Constants {
 	
 	/*Command Related*/
 	public static final String COMMAND_ERG = "ergapply";
+	public static final String COMMAND_TEST = "testfunc";
 	
 }

@@ -1,5 +1,8 @@
 package com.example.ergmod.commands;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.example.ergmod.ErgMod;
 import com.example.ergmod.itemhelpers.ItemHelper;
 import com.example.ergmod.utils.Constants;
@@ -17,13 +20,16 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
 public class ErgCommand {
-	
+    private static final Logger LOGGER = LogManager.getLogger();
+
 	//TODO: Modify or create new command that allows user to change erg level given
 	//TODO: Have execute return different number once you figure out what the numbers represent.
 	public static void register(CommandDispatcher<CommandSource> dispatcher) {
+		LOGGER.info("Executing ergapply command");
 		dispatcher.register(Commands.literal(Constants.COMMAND_ERG).requires((p_198727_0_) ->{
 			return p_198727_0_.hasPermissionLevel(2);
 		}).executes((p_198727_0_) -> {
+			LOGGER.info("Executing checkErg function");
 			ItemHelper.checkErg(p_198727_0_.getSource().asPlayer().getHeldItemMainhand());
 			return 1;
 		}));

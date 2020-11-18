@@ -21,6 +21,7 @@ public abstract class Erg extends ForgeRegistryEntry<Erg>{
 	/*TODO: Add erg to registry?*/
 	protected Erg(){
 		this.name = "Erg";
+		effects = new LinkedList<Pair<String, Integer>>();
 	}
 	
 	/*Returns level of erg*/
