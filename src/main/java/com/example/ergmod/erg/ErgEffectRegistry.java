@@ -14,9 +14,9 @@ public class ErgEffectRegistry {
 	
 	private static void init(){
 		new RegistryBuilder<ErgEffect>()
-			.setName(new ResourceLocation("ergmod", "ergeffect"))
+			.setName(new ResourceLocation("erg", "ergeffect"))
 			.setType(ErgEffect.class)
-			.setDefaultKey(new ResourceLocation("ergmod", "empty"))
+			.setDefaultKey(new ResourceLocation("erg", "empty"))
 			.create();
 	}
 }
